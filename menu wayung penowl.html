@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Kantin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animasi Fade In */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        /* Animasi Slide */
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Tambahkan efek fade in pada menu */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Tambahkan efek slide pada header */
+        .slide-in {
+            animation: slideIn 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-gray-800 font-sans">
+    <!-- Header with Logo -->
+    <header class="text-center py-5 slide-in">
+        <div class="flex flex-col sm:flex-row justify-center items-center space-x-3 mb-5">
+            <!-- Tempat Logo Kantin -->
+            <img src="https://via.placeholder.com/100" alt="Logo Kantin" class="rounded-full shadow-lg mb-3 sm:mb-0">
+            <h1 class="text-3xl sm:text-4xl font-bold text-white">Menu Kantin</h1>
+        </div>
+        <div class="space-x-2">
+            <!-- Filter Menu -->
+            <button class="px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded transform hover:scale-105 transition" onclick="filterMenu('all')">Semua</button>
+            <button class="px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded transform hover:scale-105 transition" onclick="filterMenu('food')">Makanan</button>
+            <button class="px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded transform hover:scale-105 transition" onclick="filterMenu('drinks')">Minuman</button>
+            <button class="px-4 py-2 bg-blue-800 hover:bg-blue-900 text-white rounded transform hover:scale-105 transition" onclick="filterMenu('snacks')">Snack</button>
+        </div>
+    </header>
+
+    <!-- Menu Items -->
+    <main class="p-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 fade-in" id="menu-grid">
+            <!-- Makanan -->
+            <div class="menu-item food bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Spaghetti</h3>
+                <p class="text-gray-600">Rp7.000</p>
+            </div>
+            <div class="menu-item food bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Mie Rendang</h3>
+                <p class="text-gray-600">Rp6.000</p>
+            </div>
+            <div class="menu-item food bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Mie Goreng Biasa</h3>
+                <p class="text-gray-600">Rp6.000</p>
+            </div>
+
+            <!-- Minuman -->
+            <div class="menu-item drinks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Es Teh Dingin</h3>
+                <p class="text-gray-600">Rp4.000</p>
+            </div>
+            <div class="menu-item drinks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Kopi Kapal Api</h3>
+                <p class="text-gray-600">Rp4.000</p>
+            </div>
+            <div class="menu-item drinks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Milo</h3>
+                <p class="text-gray-600">Rp7.000</p>
+            </div>
+
+            <!-- Snack -->
+            <div class="menu-item snacks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Chitato</h3>
+                <p class="text-gray-600">Rp2.000</p>
+            </div>
+            <div class="menu-item snacks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Chocolatos</h3>
+                <p class="text-gray-600">Rp1.000</p>
+            </div>
+            <div class="menu-item snacks bg-white p-4 shadow-lg rounded-lg hover:shadow-xl transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Mie Kremez</h3>
+                <p class="text-gray-600">Rp1.000</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-5 bg-gray-800 text-white">
+        <p>© 2024 Kantin Kampus</p>
+    </footer>
+
+    <script>
+        // Fungsi filter menu
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = item.classList.contains(category) ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
